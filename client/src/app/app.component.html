@@ -1,0 +1,185 @@
+<!-- <div class="container">
+  <h1>Users</h1>
+  <form (ngSubmit)="onSubmit()" class="mb-3">
+    <div class="mb-3">
+      <input type="text" [(ngModel)]="firstName" name="first_name" class="form-control" placeholder="First Name"
+        required>
+    </div>
+    <div class="mb-3">
+      <input type="text" [(ngModel)]="lastName" name="last_name" class="form-control" placeholder="Last Name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ editing ? 'Update User' : 'Add User' }}</button>
+  </form>
+  <ul class="list-group">
+    <li *ngFor="let user of users" class="list-group-item">
+      {{ user.first_name }} {{ user.last_name }}
+      <button (click)="editUser(user.id)" class="btn btn-secondary">Edit</button>
+      <button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button>
+    </li>
+  </ul>
+</div> -->
+
+<!-- <div class="top_left">
+      <img src="../assets/circle.svg" class="w-50" alt="">
+    </div>
+  
+    <div class="bottom_left">
+      <img src="../assets/circle 1.svg" class="w-50" alt="">
+    </div>
+  
+    <div class="center_middle">
+      <img src="../assets/circle 2.svg" class="w-50" alt="">
+    </div> -->
+
+<div class="container-fluid bg_col">
+  <div class="main_body mx-5">
+    <div class="form_con">
+      <div class="header_con">
+        <h1>User Information</h1>
+        <span>Please fill this form</span>
+      </div>
+      <form (ngSubmit)="onSubmit()" class="form_body_con">
+        <div class="form_group">
+          <div class="row">
+            <div class="col-md-4">
+              <label class="lbl" for="firstName">First Name :</label>
+              <br />
+              <input
+                class="inpt"
+                type="text"
+                [(ngModel)]="firstName"
+                name="first_name"
+                required
+                [ngClass]="{ shake: shake && !firstName }"
+              />
+            </div>
+            <div class="col-md-4">
+              <label class="lbl" for="lastName">Last Name :</label>
+              <br />
+              <input
+                class="inpt"
+                type="text"
+                [(ngModel)]="lastName"
+                name="last_name"
+                required
+                [ngClass]="{ shake: shake && !lastName }"
+              />
+            </div>
+            <div class="col-md-4">
+              <label class="lbl" for="email">Email Address :</label>
+              <br />
+              <input
+                class="inpt"
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                required
+                [ngClass]="{ shake: shake && !email }"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form_group">
+          <div class="row">
+            <div class="col-md-4">
+              <label class="lbl" for="mobile">Mobile No :</label>
+              <br />
+              <input
+                class="inpt"
+                type="text"
+                [(ngModel)]="mobile"
+                name="mobile"
+                required
+                [ngClass]="{ shake: shake && !mobile }"
+              />
+            </div>
+            <div class="col-md-4">
+              <label class="lbl" for="address">Address :</label>
+              <br />
+              <input
+                class="inpt"
+                type="text"
+                [(ngModel)]="address"
+                name="address"
+                required
+                [ngClass]="{ shake: shake && !address }"
+              />
+            </div>
+            <div class="col-md-4">
+              <label class="lbl" for="pincode">Pin code :</label>
+              <br />
+              <input
+                class="inpt"
+                type="text"
+                [(ngModel)]="pincode"
+                name="pincode"
+                required
+                [ngClass]="{ shake: shake && !pincode }"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form_group">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="add_user_btn mt-3 me-5">
+                {{ editing ? "Update User" : "Add User" }}
+              </button>
+              <button
+                type="button"
+                (click)="resetForm()"
+                class="add_refresh_btn mt-3"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="form_con pt-4" *ngIf="users.length > 0">
+      <ul class="list-group">
+        <li *ngFor="let user of users" class="list-group-item">
+          {{ user.first_name }} {{ user.last_name }} {{ user.email }} {{ user.mobile }} {{ user.address }} {{ user.pincode}}
+          <button (click)="editUser(user.id)" class="btn btn-secondary">Edit</button>
+          <button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button>
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="form_con pt-4">
+      <table id="userTable" class="table table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Pincode</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobile }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.pincode }}</td>
+            <td>
+              <button (click)="editUser(user.id)" class="btn btn-secondary">
+                Edit
+              </button>
+              <button (click)="deleteUser(user.id)" class="btn btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
